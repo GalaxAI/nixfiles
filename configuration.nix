@@ -94,7 +94,15 @@
     #  };
     #openFirewall = true;
   };
-
+  programs.ssh.startAgent = true;
+  programs.ssh = {
+    startAgent = true;
+    extraConfig = ''
+      Host github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519
+    '';
+  };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
