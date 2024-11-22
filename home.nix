@@ -20,13 +20,11 @@
     tree
   ];
 
+  home.stateVersion = "24.11";
   programs.git = {
     enable = true;
     userName = "GalaxAI";
-    userEmail = "92019780+GalaXai@users.noreply.github.com";
+    userEmail = "92019780+GalaxAI@users.noreply.github.com";
   };
-
-  home.stateVersion = "24.11";
-
   programs.home-manager.enable = true;
 }
