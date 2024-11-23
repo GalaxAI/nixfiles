@@ -9,7 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/plasma6.nix
-    ];
+      ./development
+   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -70,9 +71,10 @@
   environment.systemPackages = with pkgs; [
    git
    #
+   kitty
    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
    wget
-  ];
+  ]; 
   environment.variables = {
     EDITOR = "nvim";
   };
