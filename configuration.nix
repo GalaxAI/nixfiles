@@ -87,7 +87,7 @@
   # };
 
   # List services that you want to enable:
-
+  programs.nix-ld.enable = true; ## Alows you to connect with vscode
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
