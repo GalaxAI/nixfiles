@@ -31,9 +31,6 @@
     gdb     # GNU debugger
     lldb    # LLVM debugger
     meson
-    mason   # LSP package manager
-    just    # Command runner (modern make alternative)
-    
   ];
 
 }
