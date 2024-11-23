@@ -19,12 +19,15 @@
     btop
     tree
   ];
-
-  home.stateVersion = "24.11";
-  programs.git = {
+   programs.bash ={
+    enable = true;
+   };
+   programs.git = {
     enable = true;
     userName = "GalaxAI";
     userEmail = "92019780+GalaxAI@users.noreply.github.com";
   };
+
+  home.stateVersion = "24.11";
   programs.home-manager.enable = true;
 }

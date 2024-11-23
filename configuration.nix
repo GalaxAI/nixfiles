@@ -3,11 +3,12 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+ 
 {
-  imports =
+ imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/plasma6.nix
     ];
 
   # Bootloader.
@@ -67,11 +68,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+   git
+   #
    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
    wget
-   git
-
-   # inputs.helix.packages."${pkgs.system}".helix
   ];
   environment.variables = {
     EDITOR = "nvim";
