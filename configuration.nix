@@ -57,7 +57,7 @@
   users.users.billyp = {
     isNormalUser = true;
     description = "billy puter";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" "gamepad" ];
     packages = with pkgs; [
       firefox
     ];
@@ -103,6 +103,28 @@
         User git
         IdentityFile ~/.ssh/id_ed25519
     '';
+  };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports for Steam Remote Play
+    dedicatedServer.openFirewall = false; # Enable this if you plan to host servers
+  };
+
+  # Enable 32-bit support for Steam
+  hardware.opengl = {
+    enable = true;
+    # driSupport = true;
+    driSupport32Bit = true; # This is needed for Steam
+  };
+  # sound.enable = true;
+  hardware.pulseaudio.enable = false;  # Disable pulseaudio in favor of pipewire
+  security.rtkit.enable = true;  # Optional but recommended for better real-time audio performance
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;  # Needed for Steam games
+    pulse.enable = true;  # PulseAudio compatibility
+    jack.enable = true;   # JACK compatibility
   };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

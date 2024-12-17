@@ -7,6 +7,8 @@
 
     #misc
     fastfetch
+    steam
+    discord
 
     #archives
     zip
